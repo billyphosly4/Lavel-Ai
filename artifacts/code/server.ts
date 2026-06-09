@@ -39,7 +39,7 @@ export const codeDocumentHandler = createDocumentHandler<"code">({
 
     const { fullStream } = streamText({
       model: getLanguageModel(modelId),
-      system: `${updateDocumentPrompt(document.content, "code")}\n\nOutput ONLY the complete updated code. No explanations, no markdown fences, no wrapping.`,
+      system: `${updateDocumentPrompt(document.content ?? null, "code")}\n\nOutput ONLY the complete updated code. No explanations, no markdown fences, no wrapping.`,
       prompt: description,
     });
 
